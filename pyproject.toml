@@ -1,0 +1,26 @@
+[project]
+name = "fbr-greenfield-dss"
+version = "0.1.0"
+description = "FBR Agentic HR Decision Support System"
+requires-python = ">=3.12"
+readme = "README.md"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+  "integration: hits live HRMS/OCR databases",
+]
+[tool.ruff]
+target-version = "py312"
+extend-exclude = ["frontend", "RAG Documents", "data"]
+
+[tool.ruff.lint]
+# Real errors only: syntax, undefined names, unused imports/variables.
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# Scripts add the project root to sys.path before importing app.*
+"scripts/*" = ["E402"]

@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "description": "UAT golden prompts spanning HRMS + Personal Files + Policy. Sign off with HR domain owners.",
+  "cases": [
+    {
+      "id": "hrms-sanction-grade",
+      "sources": ["hrms", "rules"],
+      "question": "What is the sanctioned strength and vacancy for BS-18?",
+      "expect": ["sanctioned", "vacant", "BS-18"]
+    },
+    {
+      "id": "hrms-reporting-line",
+      "sources": ["hrms", "policy"],
+      "question": "Who reports to the Commissioner Inland Revenue in a typical field formation JD?",
+      "expect": ["report", "Commissioner"]
+    },
+    {
+      "id": "hrms-succession-vacant",
+      "sources": ["hrms", "rules"],
+      "question": "Who is eligible for permanent transfer to a vacant BS-18 seat?",
+      "expect": ["eligible", "BS-18"]
+    },
+    {
+      "id": "pf-discipline",
+      "sources": ["pf"],
+      "question": "Find Personal File events for disciplinary / E&D matters for the officer named in the ask (provide CNIC).",
+      "expect": ["Personal File", "discipline"]
+    },
+    {
+      "id": "pf-medical-redact-self",
+      "sources": ["pf"],
+      "question": "Summarize medical leave entries from my Personal File.",
+      "expect": ["Personal File"]
+    },
+    {
+      "id": "policy-apt-promotion",
+      "sources": ["policy"],
+      "question": "What do the Civil Servants APT Rules say about promotion eligibility?",
+      "expect": ["promotion", "APT"]
+    },
+    {
+      "id": "policy-schedule-ii",
+      "sources": ["policy", "rules"],
+      "question": "What is the Schedule-II minimum service for promotion from BS-18 to BS-19?",
+      "expect": ["Schedule", "BS-18", "BS-19"]
+    },
+    {
+      "id": "rules-cadre-promo",
+      "sources": ["hrms", "pf", "policy", "rules"],
+      "question": "Check cadre promotion eligibility from BS-18 to BS-19 including MCMC for officer CNIC {CNIC}.",
+      "expect": ["promotion", "MCMC"]
+    },
+    {
+      "id": "rules-excadre-promo",
+      "sources": ["hrms", "policy", "rules"],
+      "question": "Is Ex-Cadre promotion allowed from the officer's current designation to the target designation under gazette hops?",
+      "expect": ["Ex-Cadre", "gazette"]
+    },
+    {
+      "id": "rules-training-mcmc",
+      "sources": ["hrms", "rules"],
+      "question": "Training nomination eligibility for MCMC excluding LMS-named courses for officer CNIC {CNIC}.",
+      "expect": ["MCMC", "nomination"]
+    },
+    {
+      "id": "hybrid-three-source",
+      "sources": ["hrms", "pf", "policy"],
+      "question": "For officer CNIC {CNIC}, summarize current grade/posting from HRMS, any open inquiry signals from the Personal File, and the APT promotion rule excerpt that applies.",
+      "expect": ["HRMS", "Personal File", "policy"]
+    }
+  ]
+}

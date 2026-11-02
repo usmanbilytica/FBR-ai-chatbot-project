@@ -1,0 +1,38 @@
+# --- Secrets: never commit these ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.embed_cache/
+
+# --- Frontend ---
+frontend/node_modules/
+frontend/dist/
+
+# --- Runtime data (large and/or contains personal records) ---
+data/qdrant/
+data/qdrant_pf/
+data/qdrant_policy/
+data/_qdrant_smoke/
+data/catalog/
+data/wheels/
+data/*.db
+data/status_map.json
+data/excadre_gazettes.json
+data/jd_authority.json
+data/pf_index_checkpoint.json
+data/*.err
+*.log
+
+# --- Source documents for RAG (large PDFs, kept outside git) ---
+RAG Documents/

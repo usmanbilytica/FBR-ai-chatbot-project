@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "id": "hq_feb_2022",
+      "title": "FBR HQ JDs and KPIs (February 2022 authority)",
+      "office_type": "HQ",
+      "match_filename_substrings": ["FBRHQJDsandKPIs", "HQ JD", "JDsKPIs"]
+    },
+    {
+      "id": "field_june_2022",
+      "title": "Field Offices JDs and KPIs Inland Revenue & Customs (June 2022 authority)",
+      "office_type": "Field",
+      "match_filename_substrings": ["FieldOffices", "InlandRevenue", "Field JD"]
+    }
+  ]
+}

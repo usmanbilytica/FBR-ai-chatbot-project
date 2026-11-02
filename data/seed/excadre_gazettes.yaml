@@ -1,0 +1,12 @@
+default_gazette_pct: 1.0
+hops:
+  - from: "Assistant Private Secretary"
+    to: "Private Secretary"
+    gazette: "seed"
+  - from: "Private Secretary"
+    to: "Senior Private Secretary"
+    gazette: "seed"
+  - from: "Senior Auditor"
+    to: "Assistant Accounts Officer"
+    gazette: "seed"
+notes: "Seed hops — merge/replace during policy ingest from Ex-Cadre PDFs."
