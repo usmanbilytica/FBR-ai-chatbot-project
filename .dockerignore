@@ -1,0 +1,16 @@
+# Keep secrets, local envs and runtime data out of the Docker image.
+# data/ and RAG Documents/ are mounted as volumes by docker-compose.
+.env
+.env.*
+.git
+.github
+.venv
+venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.ruff_cache
+frontend/node_modules
+data
+RAG Documents
+*.log

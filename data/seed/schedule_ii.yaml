@@ -1,0 +1,17 @@
+entries:
+  - from_bps: 17
+    to_bps: 18
+    min_years: 5
+    note: "Schedule-II seed — refine from Estacode / promotion policy ingest"
+  - from_bps: 18
+    to_bps: 19
+    min_years: 5
+    note: "Schedule-II seed"
+  - from_bps: 19
+    to_bps: 20
+    min_years: 5
+    note: "Schedule-II seed"
+  - from_bps: 20
+    to_bps: 21
+    min_years: 5
+    note: "Schedule-II seed"

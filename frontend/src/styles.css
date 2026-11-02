@@ -1,0 +1,128 @@
+:root {
+  --bg: #0f1c17;
+  --panel: #162821;
+  --ink: #e8f2ec;
+  --muted: #9bb5a8;
+  --accent: #3d9b6e;
+  --warn: #d4a017;
+  --fail: #c44b4b;
+  --line: #2a4036;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 10% -10%, #1d3b2e, transparent),
+              linear-gradient(160deg, #0f1c17, #13241d 50%, #0c1612);
+  color: var(--ink);
+  min-height: 100vh;
+}
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+.brand {
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+.sub {
+  color: var(--muted);
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+.panel {
+  background: color-mix(in srgb, var(--panel) 92%, black);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.row { display: flex; gap: 8px; }
+textarea {
+  flex: 1;
+  min-height: 90px;
+  resize: vertical;
+  background: #0d1813;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+}
+button {
+  background: var(--accent);
+  color: #04140c;
+  border: 0;
+  border-radius: 10px;
+  padding: 0 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: wait; }
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+.chip {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.answer {
+  white-space: pre-wrap;
+  line-height: 1.45;
+  margin-top: 8px;
+}
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+.trace {
+  margin-top: 16px;
+  display: grid;
+  gap: 8px;
+}
+.trace item, .trace .item {
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.identity {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.identity .linkish,
+button.linkish {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.auth input[type="number"] {
+  flex: 1;
+  background: #0d1813;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+}
+.meta.error {
+  color: var(--fail);
+}
