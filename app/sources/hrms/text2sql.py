@@ -44,7 +44,8 @@ def validate_sql(sql: str) -> tuple[bool, str]:
     referenced = set(re.findall(r"(?i)(?:from|join)\s+dbo\.\[?([A-Za-z0-9_]+)\]?", s))
     referenced |= set(re.findall(r"(?i)(?:from|join)\s+\[?dbo\]?\.\[?([A-Za-z0-9_]+)\]?", s))
     referenced |= set(re.findall(r"(?i)(?:from|join)\s+\[?([A-Za-z0-9_]+)\]?", s))
-    noise = {"select", "where", "and", "or", "on", "as", "top", "inner", "left", "right", "outer", "join"}
+    # "dbo" is the schema prefix in "dbo.table", not a table name.
+    noise = {"select", "where", "and", "or", "on", "as", "top", "inner", "left", "right", "outer", "join", "dbo"}
     referenced = {t for t in referenced if t.lower() not in noise}
     unknown = [t for t in referenced if t not in tables and t.lower() not in {x.lower() for x in tables}]
     if unknown:

@@ -59,12 +59,19 @@ def test_lms_blocked():
     assert r.status == Severity.BLOCK
 
 
-def test_sql_validator_rejects_dml():
+def test_sql_validator_rejects_dml(monkeypatch):
+    # Use a tiny in-memory catalog so the test never needs a live HRMS DB
+    # (data/catalog/schema_catalog.json is git-ignored and absent in CI).
+    monkeypatch.setattr(
+        "app.sources.hrms.text2sql.load_catalog",
+        lambda: {"tables": {"pr_employee_mf": {}}},
+    )
     ok, _ = validate_sql("DELETE FROM dbo.pr_employee_mf")
     assert not ok
-    ok, _ = validate_sql("SELECT 1 AS x")
-    # may fail unknown tables depending on catalog; at least DML rejected above
-    assert True
+    ok, _ = validate_sql("SELECT TOP 5 * FROM dbo.pr_employee_mf e")
+    assert ok
+    ok, reason = validate_sql("SELECT * FROM dbo.not_a_real_table")
+    assert not ok and "unknown tables" in reason
 
 
 def test_rbac_finalize_full_only():
